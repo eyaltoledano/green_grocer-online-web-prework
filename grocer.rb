@@ -1,5 +1,16 @@
+require 'pry'
+
 def consolidate_cart(cart)
-  # code here
+  hash = {}
+  cart.each do |item|
+    hash[item.keys.first] ||= {}
+    hash[item.keys.first] = {
+      item.values[0].first[0] => item.values[0].first[1],
+      item.values[0].keys[1] => item.values[0].values[1]
+    }
+      # item.values[0].first[0] => item.values[1].first[1],
+    binding.pry
+  end
 end
 
 def apply_coupons(cart, coupons)
