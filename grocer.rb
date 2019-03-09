@@ -7,7 +7,7 @@ def consolidate_cart(cart)
     count = 1
     if !unique_items.uniq.include?(item.keys.first)
       unique_items << item.keys.first
-    elsif unique_items.uniq.include?(item.keys.first)
+    else
       count += 1
     end
 
