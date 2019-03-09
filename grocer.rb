@@ -4,11 +4,11 @@ def consolidate_cart(cart)
   unique_items = []
   hash = {}
   cart.each do |item|
+    count = 1
     if !unique_items.uniq.include?(item.keys.first)
       unique_items << item.keys.first
+    elsif unique_items.uniq.include?(item.keys.first)
       count += 1
-    else
-      count + 1
     end
 
     hash[item.keys.first] ||= {}
@@ -17,8 +17,8 @@ def consolidate_cart(cart)
       item.values[0].keys[1] => item.values[0].values[1],
       :count => count
     }
-    binding.pry
   end
+  hash
 end
 
 def apply_coupons(cart, coupons)
