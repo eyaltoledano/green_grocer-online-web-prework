@@ -2,7 +2,7 @@ require 'pry'
 
 def consolidate_cart(cart)
   unique_items = []
-  hash = {}
+  consolidated_cart = {}
   cart.each do |item|
     count = 1
     !unique_items.uniq.include?(item.keys.first) ? unique_items << item.keys.first : count += 1
