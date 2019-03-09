@@ -2,6 +2,7 @@ require 'pry'
 
 def consolidate_cart(cart)
   unique_items = []
+  hash = {}
   cart.collect do |item|
     count = 1
     if !unique_items.uniq.include?(item.keys.first)
@@ -17,6 +18,7 @@ def consolidate_cart(cart)
       :count => count
     }
   end
+  hash
 end
 
 def apply_coupons(cart, coupons)
