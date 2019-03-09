@@ -1,14 +1,22 @@
 require 'pry'
 
 def consolidate_cart(cart)
+  unique_items = []
   hash = {}
   cart.each do |item|
+    if !unique_items.uniq.include?(item.keys.first)
+      unique_items << item.keys.first
+      count += 1
+    else
+      count + 1
+    end
+
     hash[item.keys.first] ||= {}
     hash[item.keys.first] = {
       item.values[0].first[0] => item.values[0].first[1],
-      item.values[0].keys[1] => item.values[0].values[1]
+      item.values[0].keys[1] => item.values[0].values[1],
+      :count => count
     }
-      # item.values[0].first[0] => item.values[1].first[1],
     binding.pry
   end
 end
