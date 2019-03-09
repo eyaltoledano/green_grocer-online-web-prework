@@ -7,14 +7,14 @@ def consolidate_cart(cart)
     count = 1
     !unique_items.uniq.include?(item.keys.first) ? unique_items << item.keys.first : count += 1
 
-    hash[item.keys.first] ||= {}
-    hash[item.keys.first] = {
+    consolidated_cart[item.keys.first] ||= {}
+    consolidated_cart[item.keys.first] = {
       item.values[0].first[0] => item.values[0].first[1],
       item.values[0].keys[1] => item.values[0].values[1],
       :count => count
     }
   end
-  hash
+  consolidated_cart
 end
 
 def apply_coupons(cart, coupons)
