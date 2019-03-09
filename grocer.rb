@@ -5,11 +5,7 @@ def consolidate_cart(cart)
   hash = {}
   cart.each do |item|
     count = 1
-    if !unique_items.uniq.include?(item.keys.first)
-      unique_items << item.keys.first
-    else
-      count += 1
-    end
+    !unique_items.uniq.include?(item.keys.first) ? unique_items << item.keys.first : count += 1
 
     hash[item.keys.first] ||= {}
     hash[item.keys.first] = {
